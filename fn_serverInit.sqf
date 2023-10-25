@@ -54,7 +54,7 @@ fa_point_fnc_nearby = compileFinal {
 
 	// Put it in the right spot
 	private _scale = linearConversion [0, 105, _final_distance, 0.1, 0.6, false];
-	_floating_marker setPosAsl _finalPos; 
+	_floating_marker setPosASL _finalPos; 
 	_floating_marker setVectorDirAndUp [_finalDir,[0,0,1]];
 	_floating_marker setObjectScale _scale;
 
