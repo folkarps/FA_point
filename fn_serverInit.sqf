@@ -1,3 +1,5 @@
+if !isServer exitWith{};
+
 fa_point_fnc_point = { 
 	// prevent player from spamming
 	player setVariable ["fa_point_var_CAN_POINT",false];
