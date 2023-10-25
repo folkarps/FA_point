@@ -1,6 +1,6 @@
 if !isServer exitWith{};
 
-fa_point_fnc_point = { 
+fa_point_fnc_point = compileFinal { 
 	// prevent player from spamming
 	player setVariable ["fa_point_var_CAN_POINT",false];
 	// animate
@@ -34,7 +34,7 @@ fa_point_fnc_point = {
 	};
 };
 
-fa_point_fnc_nearby = { 
+fa_point_fnc_nearby = compileFinal { 
 
 	params ["_finalPos","_finalDir","_final_distance"];
 
@@ -61,8 +61,8 @@ fa_point_fnc_nearby = {
 };
 
 [["TacticalPing", "Activate", {
-	params ["_activated"];
+	if (missionNamespace getVariable ["fa_point_var_override",false]) exitWith{};
 	if (player getVariable ["fa_point_var_CAN_POINT",true]) then {
-		call c_fnc_fa_point;
+		call fa_point_fnc_point;
 	};
 }]] remoteExec ["addUserActionEventHandler",0,true];
