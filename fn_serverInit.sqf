@@ -20,7 +20,7 @@ fa_point_fnc_point = {
 	private _finalDir = getCameraViewDirection player;
 
 	// Ask multiplayers if they are close enough to see the point	
-	private _near_players = (player nearEntities ["Man", 3]) select {isPlayer _x};
+	private _near_players = (player nearEntities ["CAManBase", 3]) select {isPlayer _x};
 	// use vehicle crew otherwise.
 	if (vehicle player != player) then {
 		_near_players = crew vehicle player;
