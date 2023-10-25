@@ -21,7 +21,6 @@ fa_point_fnc_point = compileFinal {
 		_finalPos = (_intersects select 0 select 0);
 	};
 	private _final_distance = _eyePos distance _finalPos;
-	private _finalDir = getCameraViewDirection player;
 
 	// Ask multiplayers if they are close enough to see the point	
 	private _near_players = (player nearEntities ["CAManBase", 3]) select {isPlayer _x};
@@ -29,7 +28,7 @@ fa_point_fnc_point = compileFinal {
 	if (vehicle player != player) then {
 		_near_players = crew vehicle player;
 	};
-	[_finalPos,_finalDir,_final_distance] remoteExecCall ["fa_point_fnc_nearby",_near_players];
+	[_finalPos,_eyeDir,_final_distance] remoteExecCall ["fa_point_fnc_nearby",_near_players];
 
 	// Allow player to point again.
 	[] spawn {
