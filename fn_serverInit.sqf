@@ -69,6 +69,8 @@ publicVariable "fa_point_fnc_nearby";
 
 [["TacticalPing", "Activate", {
 	if (missionNamespace getVariable ["fa_point_var_override",false]) exitWith{};
+	if !(alive player) exitWith{};
+	if !(lifeState player in ["HEALTHY","INJURED"]) exitWith{};
 	if (player getVariable ["fa_point_var_CAN_POINT",true]) then {
 		call fa_point_fnc_point;
 	};
