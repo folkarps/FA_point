@@ -1,6 +1,6 @@
 fa_point_fnc_point = { 
 	// prevent player from spamming
-	player setVariable ["CAN_POINT",false];
+	player setVariable ["fa_point_var_CAN_POINT",false];
 	// animate
 	player playActionNow "gestureGo";
 
@@ -28,7 +28,7 @@ fa_point_fnc_point = {
 	// Allow player to point again.
 	[] spawn {
 		sleep 2; 
-		player setVariable ["CAN_POINT",true];
+		player setVariable ["fa_point_var_CAN_POINT",true];
 	};
 };
 
@@ -60,7 +60,7 @@ fa_point_fnc_nearby = {
 
 addUserActionEventHandler ["TacticalPing", "Activate", {
 	params ["_activated"];
-	if (player getVariable ["CAN_POINT",true]) then {
+	if (player getVariable ["fa_point_var_CAN_POINT",true]) then {
 		call c_fnc_fa_point;
 	};
 }];
