@@ -66,10 +66,3 @@ fa_point_fnc_nearby = {
 		call c_fnc_fa_point;
 	};
 }]] remoteExec ["addUserActionEventHandler",0,true];
-
-if (isServer) then {
-	publicVariable "c_fnc_fa_point_init";
-	remoteExec ["c_fnc_fa_point_init",0,true];
-} else {
-	call c_fnc_fa_point_init;
-};
