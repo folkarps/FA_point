@@ -60,12 +60,12 @@ fa_point_fnc_nearby = {
 	};
 };
 
-addUserActionEventHandler ["TacticalPing", "Activate", {
+[["TacticalPing", "Activate", {
 	params ["_activated"];
 	if (player getVariable ["fa_point_var_CAN_POINT",true]) then {
 		call c_fnc_fa_point;
 	};
-}];
+}]] remoteExec ["addUserActionEventHandler",0,true];
 
 if (isServer) then {
 	publicVariable "c_fnc_fa_point_init";
