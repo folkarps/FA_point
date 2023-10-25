@@ -1,3 +1,7 @@
+// Folk ARPS server-side pointing mod by Costno & NikkoJT
+// https://folkarps.com - https://github.com/folkarps/fa_point
+// This mod runs on the server and gives players an improved pointing feature, tied to the Tactical Ping keybind. Tactical Ping should be disabled in the server difficulty settings. Clients do not need this mod and should not load it.
+
 if !isServer exitWith{};
 
 fa_point_fnc_point = compileFinal { 
