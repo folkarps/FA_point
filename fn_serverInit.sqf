@@ -34,6 +34,8 @@ fa_point_fnc_point = compileFinal {
 	};
 };
 
+publicVariable "fa_point_fnc_point";
+
 fa_point_fnc_nearby = compileFinal { 
 
 	params ["_finalPos","_finalDir","_final_distance"];
@@ -59,6 +61,8 @@ fa_point_fnc_nearby = compileFinal {
 		deleteVehicle _this; 
 	};
 };
+
+publicVariable "fa_point_fnc_nearby";
 
 [["TacticalPing", "Activate", {
 	if (missionNamespace getVariable ["fa_point_var_override",false]) exitWith{};
