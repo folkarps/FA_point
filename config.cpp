@@ -16,9 +16,9 @@ class CfgFunctions
 	{
 		class functions
 		{
-			class Init { 
+			class serverInit { 
 				postInit=1;
-				file = "\fa_point\init.sqf";
+				file = "\fa_point\fn_serverInit.sqf";
 			};
 		};
 	};
