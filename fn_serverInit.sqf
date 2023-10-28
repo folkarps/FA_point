@@ -23,7 +23,7 @@ fa_point_fnc_point = compileFinal {
 	private _final_distance = _eyePos distance _finalPos;
 
 	// Ask multiplayers if they are close enough to see the point	
-	private _near_players = (player nearEntities ["CAManBase", 3]) select {isPlayer _x};
+	private _near_players = (player nearEntities ["CAManBase", 4]) select {isPlayer _x};
 	[_finalPos,_eyeDir,_final_distance] remoteExecCall ["fa_point_fnc_nearby",_near_players];
 
 	// Allow player to point again.
