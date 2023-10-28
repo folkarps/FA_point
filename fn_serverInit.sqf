@@ -24,10 +24,6 @@ fa_point_fnc_point = compileFinal {
 
 	// Ask multiplayers if they are close enough to see the point	
 	private _near_players = (player nearEntities ["CAManBase", 3]) select {isPlayer _x};
-	// use vehicle crew otherwise.
-	if (vehicle player != player) then {
-		_near_players = crew vehicle player;
-	};
 	[_finalPos,_eyeDir,_final_distance] remoteExecCall ["fa_point_fnc_nearby",_near_players];
 
 	// Allow player to point again.
@@ -70,6 +66,7 @@ publicVariable "fa_point_fnc_nearby";
 [["TacticalPing", "Activate", {
 	if (missionNamespace getVariable ["fa_point_var_override",false]) exitWith{};
 	if ((["VirtualSpectator_F","VirtualMan_F"] findIf {typeOf player == _x}) > -1) exitWith{};
+	if !(vehicle player == player) exitWith{};
 	if !(alive player) exitWith{};
 	if !(lifeState player in ["HEALTHY","INJURED"]) exitWith{};
 	if !(player getVariable ["f_var_fam_conscious",true]) exitWith{};
