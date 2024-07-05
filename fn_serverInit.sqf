@@ -7,8 +7,10 @@ if !isServer exitWith{};
 fa_point_fnc_point = compileFinal { 
 	// prevent player from spamming
 	player setVariable ["fa_point_var_CAN_POINT",false];
-	// animate
-	player playActionNow "gestureGo";
+	// animate, unless player is reloading (interrupting reload gesture can delete magazines)
+	if !(((weaponState player) select 6) > 0) then {
+		player playActionNow "gestureGo";
+	};
 
 	// Find where pointer object should be.
 	private _max_distance = 100;
